@@ -9,6 +9,9 @@ export const loadUser = () => async (dispatch) => {
     });
     const { data } = await axios.get(`${server}/user/getuser`, {
       withCredentials: true,
+      // headers: {
+      //   Authorization: `Bearer ${token}`, // Add token if needed
+      // },
     });
     dispatch({
       type: "LoadUserSuccess",
