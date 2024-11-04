@@ -9,7 +9,7 @@ import { server } from "../../server";
 const AllEvents = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {
-   axios.get(`${server}/event/admin-all-events`, {withCredentials: true}).then((res) =>{
+   axios.get(`₹{server}/event/admin-all-events`, {withCredentials: true}).then((res) =>{
     setEvents(res.data.events);
    })
   }, []);
@@ -53,7 +53,7 @@ const AllEvents = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/product/${params.id}?isEvent=true`}>
+            <Link to={`/product/₹{params.id}?isEvent=true`}>
               <Button>
                 <AiOutlineEye size={20} />
               </Button>
@@ -71,7 +71,7 @@ const AllEvents = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "INR₹ " + item.discountPrice,
         Stock: item.stock,
         sold: item.sold_out,
       });

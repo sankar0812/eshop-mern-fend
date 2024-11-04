@@ -70,7 +70,7 @@ const AdminDashboardMain = () => {
       row.push({
         id: item._id,
         itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0),
-        total: item?.totalPrice + " $",
+        total: item?.totalPrice + " ₹",
         status: item?.status,
         createdAt: item?.createdAt.slice(0,10),
       });
@@ -93,19 +93,19 @@ const AdminDashboardMain = () => {
                 fill="#00000085"
               />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={`₹{styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 Total Earning
               </h3>
             </div>
-            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">$ {adminBalance}</h5>
+            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">₹ {adminBalance}</h5>
           </div>
   
           <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
               <MdBorderClear size={30} className="mr-2" fill="#00000085" />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={`₹{styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 All Sellers
               </h3>
@@ -124,7 +124,7 @@ const AdminDashboardMain = () => {
                 fill="#00000085"
               />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={`₹{styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 All Orders
               </h3>

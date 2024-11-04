@@ -57,7 +57,7 @@ const AllOrders = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/order/${params.id}`}>
+            <Link to={`/order/₹{params.id}`}>
               <Button>
                 <AiOutlineArrowRight size={20} />
               </Button>
@@ -75,7 +75,7 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "INR₹ " + item.totalPrice,
         status: item.status,
       });
     });

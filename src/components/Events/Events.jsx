@@ -10,8 +10,8 @@ const Events = () => {
     <div>
      {
       !isLoading && (
-        <div className={`${styles.section}`}>
-      <div className={`${styles.heading}`}>
+        <div className={`₹{styles.section}`}>
+      <div className={`₹{styles.heading}`}>
         <h1>Popular Events</h1>
       </div>
 

@@ -21,7 +21,7 @@ const ShopCreate = () => {
     e.preventDefault();
 
     axios
-      .post(`${server}/shop/create-shop`, {
+      .post(`₹{server}/shop/create-shop`, {
         name,
         email,
         password,
@@ -237,7 +237,7 @@ const ShopCreate = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            <div className={`₹{styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
               <Link to="/shop-login" className="text-blue-600 pl-2">
                 Sign in

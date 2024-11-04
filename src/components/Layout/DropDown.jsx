@@ -5,7 +5,7 @@ import styles from "../../styles/styles";
 const DropDown = ({ categoriesData, setDropDown }) => {
   const navigate = useNavigate();
   const submitHandle = (i) => {
-    navigate(`/products?category=${i.title}`);
+    navigate(`/products?category=₹{i.title}`);
     setDropDown(false);
     window.location.reload();
   };
@@ -15,7 +15,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
         categoriesData.map((i, index) => (
           <div
             key={index}
-            className={`${styles.noramlFlex}`}
+            className={`₹{styles.noramlFlex}`}
             onClick={() => submitHandle(i)}
           >
             <img

@@ -46,7 +46,7 @@ const UserInbox = () => {
     const getConversation = async () => {
       try {
         const resonse = await axios.get(
-          `${server}/conversation/get-all-conversation-user/${user?._id}`,
+          `₹{server}/conversation/get-all-conversation-user/₹{user?._id}`,
           {
             withCredentials: true,
           }
@@ -82,7 +82,7 @@ const UserInbox = () => {
     const getMessage = async () => {
       try {
         const response = await axios.get(
-          `${server}/message/get-all-messages/${currentChat?._id}`
+          `₹{server}/message/get-all-messages/₹{currentChat?._id}`
         );
         setMessages(response.data.messages);
       } catch (error) {
@@ -114,7 +114,7 @@ const UserInbox = () => {
     try {
       if (newMessage !== "") {
         await axios
-          .post(`${server}/message/create-new-message`, message)
+          .post(`₹{server}/message/create-new-message`, message)
           .then((res) => {
             setMessages([...messages, res.data.message]);
             updateLastMessage();
@@ -135,7 +135,7 @@ const UserInbox = () => {
     });
 
     await axios
-      .put(`${server}/conversation/update-last-message/${currentChat._id}`, {
+      .put(`₹{server}/conversation/update-last-message/₹{currentChat._id}`, {
         lastMessage: newMessage,
         lastMessageId: user._id,
       })
@@ -175,7 +175,7 @@ const UserInbox = () => {
     try {
       await axios
         .post(
-          `${server}/message/create-new-message`,
+          `₹{server}/message/create-new-message`,
           {
             images: e,
             sender: user._id,
@@ -195,7 +195,7 @@ const UserInbox = () => {
 
   const updateLastMessageForImage = async () => {
     await axios.put(
-      `${server}/conversation/update-last-message/${currentChat._id}`,
+      `₹{server}/conversation/update-last-message/₹{currentChat._id}`,
       {
         lastMessage: "Photo",
         lastMessageId: user._id,
@@ -269,7 +269,7 @@ const MessageList = ({
   const [user, setUser] = useState([]);
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`/inbox?${id}`);
+    navigate(`/inbox?₹{id}`);
     setOpen(true);
   };
 
@@ -278,7 +278,7 @@ const MessageList = ({
     const userId = data.members.find((user) => user !== me);
     const getUser = async () => {
       try {
-        const res = await axios.get(`${server}/shop/get-shop-info/${userId}`);
+        const res = await axios.get(`₹{server}/shop/get-shop-info/₹{userId}`);
         setUser(res.data.shop);
       } catch (error) {
         console.log(error);
@@ -289,7 +289,7 @@ const MessageList = ({
 
   return (
     <div
-      className={`w-full flex p-3 px-3 ${
+      className={`w-full flex p-3 px-3 ₹{
         active === index ? "bg-[#00000010]" : "bg-transparent"
       }  cursor-pointer`}
       onClick={(e) =>
@@ -302,7 +302,7 @@ const MessageList = ({
     >
       <div className="relative">
         <img
-          src={`${user?.avatar?.url}`}
+          src={`₹{user?.avatar?.url}`}
           alt=""
           className="w-[50px] h-[50px] rounded-full"
         />
@@ -343,7 +343,7 @@ const SellerInbox = ({
       <div className="w-full flex p-3 items-center justify-between bg-slate-200">
         <div className="flex">
           <img
-            src={`${userData?.avatar?.url}`}
+            src={`₹{userData?.avatar?.url}`}
             alt=""
             className="w-[60px] h-[60px] rounded-full"
           />
@@ -364,28 +364,28 @@ const SellerInbox = ({
         {messages &&
           messages.map((item, index) => (
             <div
-              className={`flex w-full my-2 ${
+              className={`flex w-full my-2 ₹{
                 item.sender === sellerId ? "justify-end" : "justify-start"
               }`}
               ref={scrollRef}
             >
               {item.sender !== sellerId && (
                 <img
-                  src={`${userData?.avatar?.url}`}
+                  src={`₹{userData?.avatar?.url}`}
                   className="w-[40px] h-[40px] rounded-full mr-3"
                   alt=""
                 />
               )}
               {item.images && (
                 <img
-                  src={`${item.images?.url}`}
+                  src={`₹{item.images?.url}`}
                   className="w-[300px] h-[300px] object-cover rounded-[10px] ml-2 mb-2"
                 />
               )}
               {item.text !== "" && (
                 <div>
                   <div
-                    className={`w-max p-2 rounded ${
+                    className={`w-max p-2 rounded ₹{
                       item.sender === sellerId ? "bg-[#000]" : "bg-[#38c776]"
                     } text-[#fff] h-min`}
                   >
@@ -426,7 +426,7 @@ const SellerInbox = ({
             placeholder="Enter your message..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className={`${styles.input}`}
+            className={`₹{styles.input}`}
           />
           <input type="submit" value="Send" className="hidden" id="send" />
           <label htmlFor="send">

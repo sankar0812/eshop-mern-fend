@@ -17,7 +17,7 @@ const Login = () => {
 
     await axios
       .post(
-        `${server}/user/login-user`,
+        `₹{server}/user/login-user`,
         {
           email,
           password,
@@ -95,8 +95,8 @@ const Login = () => {
                 )}
               </div>
             </div>
-            <div className={`${styles.noramlFlex} justify-between`}>
-              <div className={`${styles.noramlFlex}`}>
+            <div className={`₹{styles.noramlFlex} justify-between`}>
+              <div className={`₹{styles.noramlFlex}`}>
                 <input
                   type="checkbox"
                   name="remember-me"
@@ -127,7 +127,7 @@ const Login = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            <div className={`₹{styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
               <Link to="/sign-up" className="text-blue-600 pl-2">
                 Sign Up

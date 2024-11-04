@@ -30,7 +30,7 @@ const UserOrderDetails = () => {
   const reviewHandler = async (e) => {
     await axios
       .put(
-        `${server}/product/create-new-review`,
+        `₹{server}/product/create-new-review`,
         {
           user,
           rating,
@@ -53,7 +53,7 @@ const UserOrderDetails = () => {
   };
   
   const refundHandler = async () => {
-    await axios.put(`${server}/order/order-refund/${id}`,{
+    await axios.put(`₹{server}/order/order-refund/₹{id}`,{
       status: "Processing refund"
     }).then((res) => {
        toast.success(res.data.message);
@@ -64,7 +64,7 @@ const UserOrderDetails = () => {
   };
 
   return (
-    <div className={`py-4 min-h-screen ${styles.section}`}>
+    <div className={`py-4 min-h-screen ₹{styles.section}`}>
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
@@ -89,7 +89,7 @@ const UserOrderDetails = () => {
           return(
           <div className="w-full flex items-start mb-5">
             <img
-              src={`${item.images[0]?.url}`}
+              src={`₹{item.images[0]?.url}`}
               alt=""
               className="w-[80x] h-[80px]"
             />
@@ -100,7 +100,7 @@ const UserOrderDetails = () => {
               </h5>
             </div>
             {!item.isReviewed && data?.status === "Delivered" ?  <div
-                className={`${styles.button} text-[#fff]`}
+                className={`₹{styles.button} text-[#fff]`}
                 onClick={() => setOpen(true) || setSelectedItem(item)}
               >
                 Write a review
@@ -128,7 +128,7 @@ const UserOrderDetails = () => {
             <br />
             <div className="w-full flex">
               <img
-                src={`${selectedItem?.images[0]?.url}`}
+                src={`₹{selectedItem?.images[0]?.url}`}
                 alt=""
                 className="w-[80px] h-[80px]"
               />
@@ -188,7 +188,7 @@ const UserOrderDetails = () => {
               ></textarea>
             </div>
             <div
-              className={`${styles.button} text-white text-[20px] ml-3`}
+              className={`₹{styles.button} text-white text-[20px] ml-3`}
               onClick={rating > 1 ? reviewHandler : null}
             >
               Submit
@@ -199,7 +199,7 @@ const UserOrderDetails = () => {
 
       <div className="border-t w-full text-right">
         <h5 className="pt-3 text-[18px]">
-          Total Price: <strong>US${data?.totalPrice}</strong>
+          Total Price: <strong>INR₹{data?.totalPrice}</strong>
         </h5>
       </div>
       <br />
@@ -225,7 +225,7 @@ const UserOrderDetails = () => {
           <br />
            {
             data?.status === "Delivered" && (
-              <div className={`${styles.button} text-white`}
+              <div className={`₹{styles.button} text-white`}
               onClick={refundHandler}
               >Give a Refund</div>
             )
@@ -234,7 +234,7 @@ const UserOrderDetails = () => {
       </div>
       <br />
       <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
+        <div className={`₹{styles.button} text-white`}>Send Message</div>
       </Link>
       <br />
       <br />

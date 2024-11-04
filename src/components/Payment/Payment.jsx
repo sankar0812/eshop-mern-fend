@@ -36,7 +36,7 @@ const Payment = () => {
           {
             description: "Sunflower",
             amount: {
-              currency_code: "USD",
+              currency_code: "INR",
               value: orderData?.totalPrice,
             },
           },
@@ -84,7 +84,7 @@ const Payment = () => {
     };
 
     await axios
-      .post(`${server}/order/create-order`, order, config)
+      .post(`₹{server}/order/create-order`, order, config)
       .then((res) => {
         setOpen(false);
         navigate("/order/success");
@@ -109,7 +109,7 @@ const Payment = () => {
       };
 
       const { data } = await axios.post(
-        `${server}/payment/process`,
+        `₹{server}/payment/process`,
         paymentData,
         config
       );
@@ -134,7 +134,7 @@ const Payment = () => {
           };
 
           await axios
-            .post(`${server}/order/create-order`, order, config)
+            .post(`₹{server}/order/create-order`, order, config)
             .then((res) => {
               setOpen(false);
               navigate("/order/success");
@@ -164,7 +164,7 @@ const Payment = () => {
     };
 
     await axios
-    .post(`${server}/order/create-order`, order, config)
+    .post(`₹{server}/order/create-order`, order, config)
     .then((res) => {
       setOpen(false);
       navigate("/order/success");
@@ -236,14 +236,14 @@ const PaymentInfo = ({
                   <input
                     required
                     placeholder={user && user.name}
-                    className={`${styles.input} !w-[95%] text-[#444]`}
+                    className={`₹{styles.input} !w-[95%] text-[#444]`}
                     value={user && user.name}
                   />
                 </div>
                 <div className="w-[50%]">
                   <label className="block pb-2">Exp Date</label>
                   <CardExpiryElement
-                    className={`${styles.input}`}
+                    className={`₹{styles.input}`}
                     options={{
                       style: {
                         base: {
@@ -268,7 +268,7 @@ const PaymentInfo = ({
                 <div className="w-[50%]">
                   <label className="block pb-2">Card Number</label>
                   <CardNumberElement
-                    className={`${styles.input} !h-[35px] !w-[95%]`}
+                    className={`₹{styles.input} !h-[35px] !w-[95%]`}
                     options={{
                       style: {
                         base: {
@@ -290,7 +290,7 @@ const PaymentInfo = ({
                 <div className="w-[50%]">
                   <label className="block pb-2">CVV</label>
                   <CardCvcElement
-                    className={`${styles.input} !h-[35px]`}
+                    className={`₹{styles.input} !h-[35px]`}
                     options={{
                       style: {
                         base: {
@@ -313,7 +313,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Submit"
-                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`₹{styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               />
             </form>
           </div>
@@ -341,7 +341,7 @@ const PaymentInfo = ({
         {select === 2 ? (
           <div className="w-full flex border-b">
             <div
-              className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+              className={`₹{styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               onClick={() => setOpen(true)}
             >
               Pay Now
@@ -399,7 +399,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Confirm"
-                className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`₹{styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               />
             </form>
           </div>
@@ -415,20 +415,20 @@ const CartData = ({ orderData }) => {
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">${orderData?.subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">₹{orderData?.subTotalPrice}</h5>
       </div>
       <br />
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping}</h5>
+        <h5 className="text-[18px] font-[600]">₹{shipping}</h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
-        <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "$" + orderData.discountPrice : "-"}</h5>
+        <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "₹" + orderData.discountPrice : "-"}</h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
-        ${orderData?.totalPrice}
+        ₹{orderData?.totalPrice}
       </h5>
       <br />
     </div>

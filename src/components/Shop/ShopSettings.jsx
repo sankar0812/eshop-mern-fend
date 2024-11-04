@@ -28,7 +28,7 @@ const ShopSettings = () => {
         setAvatar(reader.result);
         axios
           .put(
-            `${server}/shop/update-shop-avatar`,
+            `₹{server}/shop/update-shop-avatar`,
             { avatar: reader.result },
             {
               withCredentials: true,
@@ -52,7 +52,7 @@ const ShopSettings = () => {
 
     await axios
       .put(
-        `${server}/shop/update-seller-info`,
+        `₹{server}/shop/update-seller-info`,
         {
           name,
           address,
@@ -77,7 +77,7 @@ const ShopSettings = () => {
         <div className="w-full flex items-center justify-center">
           <div className="relative">
             <img
-              src={avatar ? avatar : `${seller.avatar?.url}`}
+              src={avatar ? avatar : `₹{seller.avatar?.url}`}
               alt=""
               className="w-[200px] h-[200px] rounded-full cursor-pointer"
             />
@@ -107,10 +107,10 @@ const ShopSettings = () => {
             </div>
             <input
               type="name"
-              placeholder={`${seller.name}`}
+              placeholder={`₹{seller.name}`}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
             />
           </div>
@@ -120,14 +120,14 @@ const ShopSettings = () => {
             </div>
             <input
               type="name"
-              placeholder={`${
+              placeholder={`₹{
                 seller?.description
                   ? seller.description
                   : "Enter your shop description"
               }`}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
             />
           </div>
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
@@ -139,7 +139,7 @@ const ShopSettings = () => {
               placeholder={seller?.address}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
             />
           </div>
@@ -153,7 +153,7 @@ const ShopSettings = () => {
               placeholder={seller?.phoneNumber}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
             />
           </div>
@@ -167,7 +167,7 @@ const ShopSettings = () => {
               placeholder={seller?.zipCode}
               value={zipCode}
               onChange={(e) => setZipcode(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
             />
           </div>
@@ -176,7 +176,7 @@ const ShopSettings = () => {
             <input
               type="submit"
               value="Update Shop"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
               readOnly
             />

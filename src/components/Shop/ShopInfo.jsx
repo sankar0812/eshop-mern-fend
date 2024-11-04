@@ -17,7 +17,7 @@ const ShopInfo = ({ isOwner }) => {
   useEffect(() => {
     dispatch(getAllProductsShop(id));
     setIsLoading(true);
-    axios.get(`${server}/shop/get-shop-info/${id}`).then((res) => {
+    axios.get(`₹{server}/shop/get-shop-info/₹{id}`).then((res) => {
      setData(res.data.shop);
      setIsLoading(false);
     }).catch((error) => {
@@ -28,7 +28,7 @@ const ShopInfo = ({ isOwner }) => {
   
 
   const logoutHandler = async () => {
-    axios.get(`${server}/shop/logout`,{
+    axios.get(`₹{server}/shop/logout`,{
       withCredentials: true,
     });
     window.location.reload();
@@ -52,7 +52,7 @@ const ShopInfo = ({ isOwner }) => {
       <div className="w-full py-5">
         <div className="w-full flex item-center justify-center">
           <img
-            src={`${data.avatar?.url}`}
+            src={`₹{data.avatar?.url}`}
             alt=""
             className="w-[150px] h-[150px] object-cover rounded-full"
           />
@@ -85,11 +85,11 @@ const ShopInfo = ({ isOwner }) => {
       {isOwner && (
         <div className="py-3 px-4">
            <Link to="/settings">
-           <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}>
+           <div className={`₹{styles.button} !w-full !h-[42px] !rounded-[5px]`}>
             <span className="text-white">Edit Shop</span>
           </div>
            </Link>
-          <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}
+          <div className={`₹{styles.button} !w-full !h-[42px] !rounded-[5px]`}
           onClick={logoutHandler}
           >
             <span className="text-white">Log Out</span>

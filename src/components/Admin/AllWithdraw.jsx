@@ -16,7 +16,7 @@ const AllWithdraw = () => {
 
   useEffect(() => {
     axios
-      .get(`${server}/withdraw/get-all-withdraw-request`, {
+      .get(`₹{server}/withdraw/get-all-withdraw-request`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -72,7 +72,7 @@ const AllWithdraw = () => {
         return (
           <BsPencil
             size={20}
-            className={`${params.row.status !== "Processing" ? 'hidden' : '' } mr-5 cursor-pointer`}
+            className={`₹{params.row.status !== "Processing" ? 'hidden' : '' } mr-5 cursor-pointer`}
             onClick={() => setOpen(true) || setWithdrawData(params.row)}
           />
         );
@@ -82,7 +82,7 @@ const AllWithdraw = () => {
 
   const handleSubmit = async () => {
     await axios
-      .put(`${server}/withdraw/update-withdraw-request/${withdrawData.id}`,{
+      .put(`₹{server}/withdraw/update-withdraw-request/₹{withdrawData.id}`,{
         sellerId: withdrawData.shopId,
       },{withCredentials: true})
       .then((res) => {
@@ -100,7 +100,7 @@ const AllWithdraw = () => {
         id: item._id,
         shopId: item.seller._id,
         name: item.seller.name,
-        amount: "US$ " + item.amount,
+        amount: "INR₹ " + item.amount,
         status: item.status,
         createdAt: item.createdAt.slice(0, 10),
       });
@@ -137,7 +137,7 @@ const AllWithdraw = () => {
             </select>
             <button
               type="submit"
-              className={`block ${styles.button} text-white !h-[42px] mt-4 text-[18px]`}
+              className={`block ₹{styles.button} text-white !h-[42px] mt-4 text-[18px]`}
               onClick={handleSubmit}
             >
               Update

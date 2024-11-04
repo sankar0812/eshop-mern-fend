@@ -57,7 +57,7 @@ const ProfileContent = ({ active }) => {
         setAvatar(reader.result);
         axios
           .put(
-            `${server}/user/update-avatar`,
+            `₹{server}/user/update-avatar`,
             { avatar: reader.result },
             {
               withCredentials: true,
@@ -84,7 +84,7 @@ const ProfileContent = ({ active }) => {
           <div className="flex justify-center w-full">
             <div className="relative">
               <img
-                src={`${user?.avatar?.url}`}
+                src={`₹{user?.avatar?.url}`}
                 className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
                 alt=""
               />
@@ -110,7 +110,7 @@ const ProfileContent = ({ active }) => {
                   <label className="block pb-2">Full Name</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -120,7 +120,7 @@ const ProfileContent = ({ active }) => {
                   <label className="block pb-2">Email Address</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
+                    className={`₹{styles.input} !w-[95%] mb-1 800px:mb-0`}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -133,7 +133,7 @@ const ProfileContent = ({ active }) => {
                   <label className="block pb-2">Phone Number</label>
                   <input
                     type="number"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
                     required
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
@@ -144,7 +144,7 @@ const ProfileContent = ({ active }) => {
                   <label className="block pb-2">Enter your password</label>
                   <input
                     type="password"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -249,7 +249,7 @@ const AllOrders = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/user/order/${params.id}`}>
+            <Link to={`/user/order/₹{params.id}`}>
               <Button>
                 <AiOutlineArrowRight size={20} />
               </Button>
@@ -267,7 +267,7 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "US₹ " + item.totalPrice,
         status: item.status,
       });
     });
@@ -337,7 +337,7 @@ const AllRefundOrders = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/user/order/${params.id}`}>
+            <Link to={`/user/order/₹{params.id}`}>
               <Button>
                 <AiOutlineArrowRight size={20} />
               </Button>
@@ -355,7 +355,7 @@ const AllRefundOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "US₹ " + item.totalPrice,
         status: item.status,
       });
     });
@@ -422,7 +422,7 @@ const TrackOrder = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/user/track/order/${params.id}`}>
+            <Link to={`/user/track/order/₹{params.id}`}>
               <Button>
                 <MdTrackChanges size={20} />
               </Button>
@@ -440,7 +440,7 @@ const TrackOrder = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "INR₹ " + item.totalPrice,
         status: item.status,
       });
     });
@@ -468,7 +468,7 @@ const ChangePassword = () => {
 
     await axios
       .put(
-        `${server}/user/update-user-password`,
+        `₹{server}/user/update-user-password`,
         { oldPassword, newPassword, confirmPassword },
         { withCredentials: true }
       )
@@ -497,7 +497,7 @@ const ChangePassword = () => {
             <label className="block pb-2">Enter your old password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
@@ -507,7 +507,7 @@ const ChangePassword = () => {
             <label className="block pb-2">Enter your new password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
@@ -517,7 +517,7 @@ const ChangePassword = () => {
             <label className="block pb-2">Enter your confirm password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`₹{styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -661,7 +661,7 @@ const Address = () => {
                     <label className="block pb-2">Address 1</label>
                     <input
                       type="address"
-                      className={`${styles.input}`}
+                      className={`₹{styles.input}`}
                       required
                       value={address1}
                       onChange={(e) => setAddress1(e.target.value)}
@@ -671,7 +671,7 @@ const Address = () => {
                     <label className="block pb-2">Address 2</label>
                     <input
                       type="address"
-                      className={`${styles.input}`}
+                      className={`₹{styles.input}`}
                       required
                       value={address2}
                       onChange={(e) => setAddress2(e.target.value)}
@@ -682,7 +682,7 @@ const Address = () => {
                     <label className="block pb-2">Zip Code</label>
                     <input
                       type="number"
-                      className={`${styles.input}`}
+                      className={`₹{styles.input}`}
                       required
                       value={zipCode}
                       onChange={(e) => setZipCode(e.target.value)}
@@ -717,7 +717,7 @@ const Address = () => {
                   <div className=" w-full pb-2">
                     <input
                       type="submit"
-                      className={`${styles.input} mt-5 cursor-pointer`}
+                      className={`₹{styles.input} mt-5 cursor-pointer`}
                       required
                       readOnly
                     />
@@ -733,7 +733,7 @@ const Address = () => {
           My Addresses
         </h1>
         <div
-          className={`${styles.button} !rounded-md`}
+          className={`₹{styles.button} !rounded-md`}
           onClick={() => setOpen(true)}
         >
           <span className="text-[#fff]">Add New</span>
